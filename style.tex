@@ -1,0 +1,95 @@
+% Copyright 2012 by Aécio S. R. Santos <aecio.solando@gmail.com>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+% Redefins a fonte
+\usepackage{helvet}
+
+% Define algumas cores usadas
+\definecolor{darkgreen}{rgb}{0,.5,.48}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{gray}{rgb}{0.3,0.3,0.3}
+\definecolor{lightblue}{rgb}{0.2,0.2,0.7}
+
+% Define texto em alerta
+\setbeamercolor{alerted text}{fg=lightblue}
+
+% Define tamanho das fontes
+\setbeamerfont{frametitle}{parent=structure,size=\Large}
+\setbeamerfont{framesubtitle}{parent=frametitle,size=\footnotesize}
+\setbeamerfont{itemize/enumerate body}{size=\fontsize{16pt}{17.6pt}}
+\setbeamerfont{itemize/enumerate subbody}{size=\fontsize{14pt}{15,4pt}}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+
+% Redefine a fonte do titulo da capa como negrito
+%\setbeamerfont{title}{size=\Large, series=\bfseries}
+
+% Redefine a cor do titulo da capa
+\setbeamercolor{title}{fg=darkgreen}
+
+% Redefine a cor do titulo dos slides
+\setbeamercolor{frametitle}{fg=darkgreen,size=20pt}
+
+% Redefine bullets com formato circular
+%\useinnertheme[shadow]{rounded}
+%\setbeamertemplate{blocks}[rounded][shadow=\beamer@themerounded@shadow]
+%\setbeamertemplate{items}[ball]
+
+% Redefine o espaço entre items no ambiente 'itemize'
+\newlength{\wideitemsep}
+\setlength{\wideitemsep}{\itemsep}
+\addtolength{\wideitemsep}{0.2pt}
+\let\olditem\item
+\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
+
+% Redefine a largura das margens do texto
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+% Define a profundidade de itens do sumário
+\setcounter{tocdepth}{2}
+
+% Redefine o estilo do titulo de cada slide
+\setbeamertemplate{frametitle} {
+  \vspace{0.2cm}
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \begin{beamercolorbox}[]{frametitle}
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \usebeamerfont{frametitle}{%
+      \strut\insertframetitle\strut\par%
+    }
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else
+	\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par
+      \fi
+      \vspace{-.9cm}%
+      {
+	\textcolor{gray} {\rule[5pt]{\linewidth}{.5pt}\vspace{-8pt}}
+      }
+    }%  
+    \vskip-0.5ex%
+    \if@tempswa\else\vskip-.9cm\fi
+  \end{beamercolorbox}%
+  \vspace{0.2cm}
+}
+
+% Remove barra de navegação
+\beamertemplatenavigationsymbolsempty 
+
+% Redefine rodapé para exibir número do slide
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=1\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    %\hfill
+    \insertframenumber{}                             % Apenas número do slide atual
+    %\insertframenumber{} / \inserttotalframenumber  % Número do slide atual e total de slides
+    \hspace{2ex} 
+  \end{beamercolorbox}
+}
