@@ -13,13 +13,17 @@
 % Redefins a fonte
 \usepackage{helvet}
 
-% Define algumas cores usadas
-\definecolor{darkgreen}{rgb}{0,.5,.48}
-\definecolor{black}{rgb}{0,0,0}
-\definecolor{gray}{rgb}{0.3,0.3,0.3}
-\definecolor{lightblue}{rgb}{0.2,0.2,0.7}
+% Define some colors...
+\definecolor{titlecolor}{rgb}{0, 0.37, 0.59}
+\definecolor{lightblue}{rgb}{.0, .68, .84}
+\definecolor{black}{rgb}{0, 0, 0}
+\definecolor{gray}{rgb}{0.3, 0.3, 0.3}
 
-% Define texto em alerta
+% Remove these comments for green color scheme
+%\definecolor{titlecolor}{rgb}{0, 0.5, 0.48}
+%\definecolor{lightblue}{rgb}{0.2,0.2,0.7}
+
+% Define color of alert text
 \setbeamercolor{alerted text}{fg=lightblue}
 
 % Define tamanho das fontes
@@ -32,31 +36,48 @@
 % Redefine a fonte do titulo da capa como negrito
 %\setbeamerfont{title}{size=\Large, series=\bfseries}
 
-% Redefine a cor do titulo da capa
-\setbeamercolor{title}{fg=darkgreen}
+% Redefine cover title color
+\setbeamercolor{title}{fg=titlecolor}
 
-% Redefine a cor do titulo dos slides
-\setbeamercolor{frametitle}{fg=darkgreen,size=20pt}
+% Redefine title color
+\setbeamercolor{frametitle}{fg=titlecolor,size=20pt}
 
-% Redefine bullets com formato circular
+% Uncomment to redefine bullets with round format
 %\useinnertheme[shadow]{rounded}
 %\setbeamertemplate{blocks}[rounded][shadow=\beamer@themerounded@shadow]
 %\setbeamertemplate{items}[ball]
 
-% Redefine o espaço entre items no ambiente 'itemize'
+% Redefine bullets color
+\setbeamercolor*{item}{fg=lightblue}
+
+% Redefine spacing of left margin of bullets
+\setlength{\leftmargini}{1.3em}
+\setlength{\leftmarginii}{1em}
+\setlength{\leftmarginiii}{1em}
+
+% Redefine space between of items in 'itemize' enviroment
 \newlength{\wideitemsep}
 \setlength{\wideitemsep}{\itemsep}
-\addtolength{\wideitemsep}{0.2pt}
+\addtolength{\wideitemsep}{0.25pt}
 \let\olditem\item
 \renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
 
-% Redefine a largura das margens do texto
+% Redefine space before a nested itemize
+\makeatletter
+\def\@listii{\leftmargin\leftmarginii
+              \topsep    0.9ex
+              \parsep    0\p@   \@plus\p@
+              \itemsep   \parsep}
+\makeatother
+
+
+% Redefine width of text area margins
 \setbeamersize{text margin left=1em,text margin right=1em}
 
-% Define a profundidade de itens do sumário
+% Define summary items depth
 \setcounter{tocdepth}{2}
 
-% Redefine o estilo do titulo de cada slide
+% Redefine styles of frames' title
 \setbeamertemplate{frametitle} {
   \vspace{0.2cm}
   \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
@@ -68,11 +89,11 @@
     {%
       \ifx\insertframesubtitle\@empty%
       \else
-	\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par
+  \usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par
       \fi
       \vspace{-.9cm}%
       {
-	\textcolor{gray} {\rule[5pt]{\linewidth}{.5pt}\vspace{-8pt}}
+  \textcolor{gray} {\rule[5pt]{\linewidth}{.5pt}\vspace{-8pt}}
       }
     }%  
     \vskip-0.5ex%
@@ -81,15 +102,15 @@
   \vspace{0.2cm}
 }
 
-% Remove barra de navegação
+% Removes navigation bar
 \beamertemplatenavigationsymbolsempty 
 
-% Redefine rodapé para exibir número do slide
+% Redefine footline to show only slide number
 \setbeamertemplate{footline}{
   \begin{beamercolorbox}[wd=1\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
     %\hfill
-    \insertframenumber{}                             % Apenas número do slide atual
-    %\insertframenumber{} / \inserttotalframenumber  % Número do slide atual e total de slides
+    \insertframenumber{}                             % Only current slide number
+    %\insertframenumber{} / \inserttotalframenumber  % Current slide number and total of slides
     \hspace{2ex} 
   \end{beamercolorbox}
 }
