@@ -10,30 +10,68 @@
 % modify this file as you see fit and even to delete this copyright
 % notice. 
 
-% Redefins a fonte
+% Redefines the font type
 \usepackage{helvet}
 
-% Define some colors...
-\definecolor{titlecolor}{rgb}{0, 0.37, 0.59}
+% Some useful colors
 \definecolor{lightblue}{rgb}{.0, .68, .84}
 \definecolor{black}{rgb}{0, 0, 0}
 \definecolor{gray}{rgb}{0.3, 0.3, 0.3}
 
-% Remove these comments for green color scheme
-%\definecolor{titlecolor}{rgb}{0, 0.5, 0.48}
-%\definecolor{lightblue}{rgb}{0.2,0.2,0.7}
+%
+% BLUE color scheme
+%
+\newcommand{\setcolorschemeblue}{
+ \definecolor{titlecolor}{rgb}{0, 0.37, 0.59}
+ \definecolor{bulletscolor}{rgb}{.0, .68, .84}
+ \definecolor{alertcolor}{rgb}{.0, .68, .84}
+}
+
+%
+% PURPLE color scheme
+%
+% Purple color pallete
+% base 0.35, 0.2, 0.55 (between h2 and h3)
+% h1   0.21, 0.1, 0.34 (darker)
+% h2   0.28, 0.2, 0.45
+% h3   0.44, 0.4, 0.70
+% h4   0.51, 0.2, 0.71 (lighter)
+%
+\newcommand{\setcolorschemepurple}{
+ \definecolor{titlecolor}{rgb}{0.35, 0.2, 0.55}
+ \definecolor{bulletscolor}{rgb}{0.44, 0.4, 0.70}
+ \definecolor{alertcolor}{rgb}{0.35, 0.2, 0.55}
+}
+
+%
+% GREEN color scheme
+%
+\newcommand{\setcolorschemegreen}{
+ \definecolor{titlecolor}{rgb}{0, 0.5, 0.48}
+ \definecolor{bulletscolor}{rgb}{0.2,0.2,0.7}
+ \definecolor{alertcolor}{rgb}{.0, .68, .84}
+}
+
+% Define default colors scheme
+\setcolorschemeblue
 
 % Define color of alert text
-\setbeamercolor{alerted text}{fg=lightblue}
+\setbeamercolor{alerted text}{fg=alertcolor}
 
-% Define tamanho das fontes
+% Define font sizes
 \setbeamerfont{frametitle}{parent=structure,size=\Large}
 \setbeamerfont{framesubtitle}{parent=frametitle,size=\footnotesize}
 \setbeamerfont{itemize/enumerate body}{size=\fontsize{16pt}{17.6pt}}
 \setbeamerfont{itemize/enumerate subbody}{size=\fontsize{14pt}{15,4pt}}
 \setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
 
-% Redefine a fonte do titulo da capa como negrito
+% Define font sizes for bibliography
+\setbeamerfont{bibliography entry author}{size=\small}
+\setbeamerfont{bibliography entry title}{size=\small}
+\setbeamerfont{bibliography entry location}{size=\small}
+\setbeamerfont{bibliography entry note}{size=\small}
+
+% Redefine the cover title fonts to be bold
 %\setbeamerfont{title}{size=\Large, series=\bfseries}
 
 % Redefine cover title color
@@ -47,8 +85,17 @@
 %\setbeamertemplate{blocks}[rounded][shadow=\beamer@themerounded@shadow]
 %\setbeamertemplate{items}[ball]
 
+% Redefine table of content colors
+\setbeamercolor{section in toc}{fg=titlecolor}
+\setbeamercolor{subsection in toc}{fg=titlecolor!40!black}
+
+% Redefine bibliography colors
+\setbeamercolor{bibliography entry author}{fg=titlecolor!25!black}
+\setbeamercolor{bibliography entry title}{fg=titlecolor}
+\setbeamercolor{bibliography entry location}{fg=titlecolor!25!black} 
+
 % Redefine bullets color
-\setbeamercolor*{item}{fg=lightblue}
+\setbeamercolor*{item}{fg=bulletscolor}
 
 % Redefine spacing of left margin of bullets
 \setlength{\leftmargini}{1.3em}
