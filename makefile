@@ -16,4 +16,4 @@ view:
 aspell:
 	aspell --encoding="utf-8" -c -t=tex --lang="en_US" ${file}.tex
 clear:
-	rm ${file}.aux ${file}.blg ${file}.bbl ${file}.dvi ${file}.ps ${file}.log ${file}.toc ${file}.out ${file}.nav ${file}.snm ${file}.synctex.gz
+	rm -f ${file}.aux ${file}.blg ${file}.bbl ${file}.dvi ${file}.ps ${file}.log ${file}.toc ${file}.out ${file}.nav ${file}.snm ${file}.synctex.gz
