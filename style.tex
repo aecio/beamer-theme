@@ -8,7 +8,7 @@
 % template and not specifically distribute it as part of a another
 % package/program, I grant the extra permission to freely copy and
 % modify this file as you see fit and even to delete this copyright
-% notice. 
+% notice.
 
 % Redefines the font type
 \usepackage{helvet}
@@ -58,6 +58,14 @@
 % Define color of alert text
 \setbeamercolor{alerted text}{fg=alertcolor}
 
+% block environment
+%\setbeamertemplate{blocks}[rounded=true, shadow=true]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor*{block body}{fg=black,bg=titlecolor!20!white}
+%\setbeamercolor*{block title}{fg=titlecolor!70!black,bg=titlecolor!40!white}
+\setbeamercolor*{block title}{fg=titlecolor!10!white,bg=titlecolor!75!white}
+%\setbeamerfont{block title}{size=\large,series=\bf}
+
 % Define font sizes
 \setbeamerfont{frametitle}{parent=structure,size=\Large}
 \setbeamerfont{framesubtitle}{parent=frametitle,size=\footnotesize}
@@ -92,7 +100,7 @@
 % Redefine bibliography colors
 \setbeamercolor{bibliography entry author}{fg=titlecolor!25!black}
 \setbeamercolor{bibliography entry title}{fg=titlecolor}
-\setbeamercolor{bibliography entry location}{fg=titlecolor!25!black} 
+\setbeamercolor{bibliography entry location}{fg=titlecolor!25!black}
 
 % Redefine bullets color
 \setbeamercolor*{item}{fg=bulletscolor}
@@ -142,7 +150,7 @@
       {
   \textcolor{gray} {\rule[5pt]{\linewidth}{.5pt}\vspace{-8pt}}
       }
-    }%  
+    }%
     \vskip-0.5ex%
     \if@tempswa\else\vskip-.9cm\fi
   \end{beamercolorbox}%
@@ -150,7 +158,7 @@
 }
 
 % Removes navigation bar
-\beamertemplatenavigationsymbolsempty 
+\beamertemplatenavigationsymbolsempty
 
 % Redefine footline to show only slide number
 \setbeamertemplate{footline}{
@@ -158,6 +166,6 @@
     %\hfill
     \insertframenumber{}                             % Only current slide number
     %\insertframenumber{} / \inserttotalframenumber  % Current slide number and total of slides
-    \hspace{2ex} 
+    \hspace{2ex}
   \end{beamercolorbox}
 }
